@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Dashboard from "./pages/Dashboard"
+import ProcessList from "./pages/ProcessList"
+import ProcessView from "./pages/ProcessView"
+import BpmnModeler from "./pages/BpmnModeler"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/processes" element={<ProcessList />} />
+        <Route path="/processes/:id" element={<ProcessView />} />
+        <Route path="/modeler" element={<BpmnModeler />} />
+        <Route path="/modeler/:id" element={<BpmnModeler />} />
+        
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App
+
+
+
+
